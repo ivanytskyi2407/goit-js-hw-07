@@ -23,14 +23,10 @@ function onPictureClick(evt) {
     return;
   }
   imgOnModal = basicLightbox.create(`<img src=${evt.target.dataset.source}>`);
-  imgOnModal.show();
-  
+  imgOnModal.show(); 
 }
-
 window.addEventListener('keydown',closeModal);
-
-function closeModal(evt) {
-    
+function closeModal(evt) { 
     if (evt.key === 'Escape') { 
       imgOnModal.close();
   }
