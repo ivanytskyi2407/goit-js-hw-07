@@ -32,7 +32,6 @@ window.addEventListener('keydown',closeModal);
 function closeModal(evt) {
     
     if (evt.key === 'Escape') { 
-      console.log(evt.key);
       imgOnModal.close();
   }
         window.removeEventListener('click', onPictureClick);
