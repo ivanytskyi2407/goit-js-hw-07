@@ -19,7 +19,6 @@ function createGallery() {
 }
 
 // Реалізація делегування на div.gallery і отримання url великого зображення.
-let imgColector = "";
 gallery.addEventListener('click', onPictureClick);
 
 
@@ -39,10 +38,11 @@ gallery.addEventListener('click', onPictureClick);
 
 
 function onPictureClick(evt) {
+    console.log(evt.target.nodeName);
     if (evt.target.nodeName !== "IMG") {
     return;
   }
-    imgColector = basicLightbox.create(`<img src=${evt.target.dataset.source}>`).show();
+    return basicLightbox.create(`<img src=${evt.target.dataset.source}>`).show();
 }
 
 // Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. 
