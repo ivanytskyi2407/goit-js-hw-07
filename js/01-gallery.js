@@ -21,28 +21,26 @@ function createGallery() {
 // Реалізація делегування на div.gallery і отримання url великого зображення.
 gallery.addEventListener('click', onPictureClick);
 
-
-
-
-// document.querySelector('.gallery__image').onclick = () => {
-
-// 	basicLightbox.create(`
-// 		<iframe width="560" height="315" src="https://www.youtube.com/embed/Scxs7L0vhZ4" frameborder="0" allowfullscreen></iframe>
-// 	`).show()
-
-// }
 // Підключення скрипту і стилів бібліотеки модального вікна basicLightbox. Використовуй CDN сервіс jsdelivr і додай у проект посилання на мініфіковані (.min) файли бібліотеки.
 // є
 
 // Відкриття модального вікна по кліку на елементі галереї. Для цього ознайомся з документацією і прикладами.
 
-
 function onPictureClick(evt) {
-    console.log(evt.target.nodeName);
     if (evt.target.nodeName !== "IMG") {
     return;
   }
     return basicLightbox.create(`<img src=${evt.target.dataset.source}>`).show();
+}
+
+gallery.addEventListener('keydown',closeModal);
+
+function closeModal(evt) {
+    
+    if (evt.key === 'Escape') { 
+        console.log(evt.key);
+        // gallery.removeEventListener('click', onPictureClick);
+    }
 }
 
 // Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. 
