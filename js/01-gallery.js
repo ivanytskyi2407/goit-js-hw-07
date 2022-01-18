@@ -5,21 +5,21 @@ gallery.insertAdjacentHTML('beforeend',createGallery());
 function createGallery() {  
    return galleryItems.map(({ preview, original, description }) => {
        return `
- <div class="gallery__item">
-    <a class="gallery__link" href="${original} onclick='event.preventDefault()'>
+        <div class="gallery__item">
+    <a class="gallery__link" source="${original}">
     <img
       class="gallery__image"
       src="${preview}"
       data-source="${original}"
       alt="${description}"
     />
-    </a>
- </div>`
+  </a>
+  </div>`
     }).join(''); 
 }
 
 // Реалізація делегування на div.gallery і отримання url великого зображення.
-let imgPicker = "";
+let imgColector = "";
 gallery.addEventListener('click', onPictureClick);
 
 
@@ -36,12 +36,14 @@ gallery.addEventListener('click', onPictureClick);
 // є
 
 // Відкриття модального вікна по кліку на елементі галереї. Для цього ознайомся з документацією і прикладами.
+
+
 function onPictureClick(evt) {
     if (evt.target.nodeName !== "IMG") {
     return;
   }
-    imgPicker = basicLightbox.create(`<img src=${evt.target.dataset.source}>`);
-  imgPicker.show();
+    imgColector = basicLightbox.create(`<img src=${evt.target.dataset.source}>`).show();
 }
+
 // Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. 
 // Використовуй готову розмітку модального вікна із зображенням з прикладів бібліотеки basicLightbox.
