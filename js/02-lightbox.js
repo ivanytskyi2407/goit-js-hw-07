@@ -5,7 +5,6 @@ const markup = galleryItems.map(({ preview, original, description }) => {
   <img class="gallery__image" src="${preview}" alt="${description}" />
 </a>`
 }).join('');
-
 const galleryRef = document.querySelector('.gallery');
 galleryRef.insertAdjacentHTML('beforeend',markup);
 let gallery = new SimpleLightbox('.gallery a', {
