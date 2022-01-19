@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
-const gallery = document.querySelector('.gallery');
-gallery.insertAdjacentHTML('beforeend',createGallery());
-function createGallery() {  
-   return galleryItems.map(({ preview, original, description }) => {
+
+const markup = galleryItems.map(({ preview, original, description }) => {
        return `
         <div class="gallery__item">
     <a class="gallery__link" source="${original}">
@@ -14,8 +12,10 @@ function createGallery() {
     />
   </a>
   </div>`
-    }).join(''); 
-}
+    }).join('');
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('beforeend',markup);
+
 gallery.addEventListener('click', onPictureClick);
 let imgOnModal = '';
 function onPictureClick(evt) {
